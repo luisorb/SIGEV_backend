@@ -494,18 +494,6 @@ export class QuotationsService {
       );
     }
     this.assertSecondApprover(quotation, user);
-    const comunicado = await this.prisma.attachment.findFirst({
-      where: {
-        eventId: quotation.eventId,
-        category: 'Comunicado de aprobación',
-      },
-      select: { id: true },
-    });
-    if (!comunicado) {
-      throw new BadRequestException(
-        'Debe cargar el Comunicado de aprobación antes de aprobar la cotización definitiva',
-      );
-    }
     const updated = await this.prisma.$transaction(async (tx) => {
       const updatedQuotation = await tx.quotation.update({
         where: { id },
