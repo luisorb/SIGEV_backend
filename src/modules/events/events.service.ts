@@ -180,6 +180,7 @@ export class EventsService {
           createdById: user.id,
           status: initialStatus,
           programa: dto.programa ?? null,
+          tipoEvento: dto.tipoEvento ?? '',
           instanciaParticipacion: dto.instanciaParticipacion ?? null,
         },
       });
@@ -336,6 +337,7 @@ export class EventsService {
           latitude: dto.latitude !== undefined ? dto.latitude : undefined,
           longitude: dto.longitude !== undefined ? dto.longitude : undefined,
           programa: dto.programa !== undefined ? (dto.programa || null) : undefined,
+          tipoEvento: dto.tipoEvento !== undefined ? (dto.tipoEvento || '') : undefined,
           instanciaParticipacion: dto.instanciaParticipacion !== undefined ? (dto.instanciaParticipacion || null) : undefined,
         },
       });

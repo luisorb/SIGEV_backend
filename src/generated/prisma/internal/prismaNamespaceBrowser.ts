@@ -137,6 +137,7 @@ export const EventScalarFieldEnum = {
   municipalityName: 'municipalityName',
   municipalityCategory: 'municipalityCategory',
   programa: 'programa',
+  tipoEvento: 'tipoEvento',
   instanciaParticipacion: 'instanciaParticipacion',
   generalAllyId: 'generalAllyId',
   disbursementId: 'disbursementId',

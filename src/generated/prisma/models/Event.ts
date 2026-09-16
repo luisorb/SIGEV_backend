@@ -64,6 +64,7 @@ export type EventMinAggregateOutputType = {
   municipalityName: string | null
   municipalityCategory: string | null
   programa: string | null
+  tipoEvento: string | null
   instanciaParticipacion: string | null
   generalAllyId: string | null
   disbursementId: string | null
@@ -99,6 +100,7 @@ export type EventMaxAggregateOutputType = {
   municipalityName: string | null
   municipalityCategory: string | null
   programa: string | null
+  tipoEvento: string | null
   instanciaParticipacion: string | null
   generalAllyId: string | null
   disbursementId: string | null
@@ -134,6 +136,7 @@ export type EventCountAggregateOutputType = {
   municipalityName: number
   municipalityCategory: number
   programa: number
+  tipoEvento: number
   instanciaParticipacion: number
   generalAllyId: number
   disbursementId: number
@@ -185,6 +188,7 @@ export type EventMinAggregateInputType = {
   municipalityName?: true
   municipalityCategory?: true
   programa?: true
+  tipoEvento?: true
   instanciaParticipacion?: true
   generalAllyId?: true
   disbursementId?: true
@@ -220,6 +224,7 @@ export type EventMaxAggregateInputType = {
   municipalityName?: true
   municipalityCategory?: true
   programa?: true
+  tipoEvento?: true
   instanciaParticipacion?: true
   generalAllyId?: true
   disbursementId?: true
@@ -255,6 +260,7 @@ export type EventCountAggregateInputType = {
   municipalityName?: true
   municipalityCategory?: true
   programa?: true
+  tipoEvento?: true
   instanciaParticipacion?: true
   generalAllyId?: true
   disbursementId?: true
@@ -377,6 +383,7 @@ export type EventGroupByOutputType = {
   municipalityName: string | null
   municipalityCategory: string | null
   programa: string | null
+  tipoEvento: string
   instanciaParticipacion: string | null
   generalAllyId: string | null
   disbursementId: string | null
@@ -435,6 +442,7 @@ export type EventWhereInput = {
   municipalityName?: Prisma.StringNullableFilter<"Event"> | string | null
   municipalityCategory?: Prisma.StringNullableFilter<"Event"> | string | null
   programa?: Prisma.StringNullableFilter<"Event"> | string | null
+  tipoEvento?: Prisma.StringFilter<"Event"> | string
   instanciaParticipacion?: Prisma.StringNullableFilter<"Event"> | string | null
   generalAllyId?: Prisma.UuidNullableFilter<"Event"> | string | null
   disbursementId?: Prisma.UuidNullableFilter<"Event"> | string | null
@@ -479,6 +487,7 @@ export type EventOrderByWithRelationInput = {
   municipalityName?: Prisma.SortOrderInput | Prisma.SortOrder
   municipalityCategory?: Prisma.SortOrderInput | Prisma.SortOrder
   programa?: Prisma.SortOrderInput | Prisma.SortOrder
+  tipoEvento?: Prisma.SortOrder
   instanciaParticipacion?: Prisma.SortOrderInput | Prisma.SortOrder
   generalAllyId?: Prisma.SortOrderInput | Prisma.SortOrder
   disbursementId?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -528,6 +537,7 @@ export type EventWhereUniqueInput = Prisma.AtLeast<{
   municipalityName?: Prisma.StringNullableFilter<"Event"> | string | null
   municipalityCategory?: Prisma.StringNullableFilter<"Event"> | string | null
   programa?: Prisma.StringNullableFilter<"Event"> | string | null
+  tipoEvento?: Prisma.StringFilter<"Event"> | string
   instanciaParticipacion?: Prisma.StringNullableFilter<"Event"> | string | null
   generalAllyId?: Prisma.UuidNullableFilter<"Event"> | string | null
   disbursementId?: Prisma.UuidNullableFilter<"Event"> | string | null
@@ -571,6 +581,7 @@ export type EventOrderByWithAggregationInput = {
   municipalityName?: Prisma.SortOrderInput | Prisma.SortOrder
   municipalityCategory?: Prisma.SortOrderInput | Prisma.SortOrder
   programa?: Prisma.SortOrderInput | Prisma.SortOrder
+  tipoEvento?: Prisma.SortOrder
   instanciaParticipacion?: Prisma.SortOrderInput | Prisma.SortOrder
   generalAllyId?: Prisma.SortOrderInput | Prisma.SortOrder
   disbursementId?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -614,6 +625,7 @@ export type EventScalarWhereWithAggregatesInput = {
   municipalityName?: Prisma.StringNullableWithAggregatesFilter<"Event"> | string | null
   municipalityCategory?: Prisma.StringNullableWithAggregatesFilter<"Event"> | string | null
   programa?: Prisma.StringNullableWithAggregatesFilter<"Event"> | string | null
+  tipoEvento?: Prisma.StringWithAggregatesFilter<"Event"> | string
   instanciaParticipacion?: Prisma.StringNullableWithAggregatesFilter<"Event"> | string | null
   generalAllyId?: Prisma.UuidNullableWithAggregatesFilter<"Event"> | string | null
   disbursementId?: Prisma.UuidNullableWithAggregatesFilter<"Event"> | string | null
@@ -649,6 +661,7 @@ export type EventCreateInput = {
   municipalityName?: string | null
   municipalityCategory?: string | null
   programa?: string | null
+  tipoEvento?: string
   instanciaParticipacion?: string | null
   generalAllyId?: string | null
   deletedAt?: Date | string | null
@@ -690,6 +703,7 @@ export type EventUncheckedCreateInput = {
   municipalityName?: string | null
   municipalityCategory?: string | null
   programa?: string | null
+  tipoEvento?: string
   instanciaParticipacion?: string | null
   generalAllyId?: string | null
   disbursementId?: string | null
@@ -731,6 +745,7 @@ export type EventUpdateInput = {
   municipalityName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   municipalityCategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   programa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipoEvento?: Prisma.StringFieldUpdateOperationsInput | string
   instanciaParticipacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generalAllyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -772,6 +787,7 @@ export type EventUncheckedUpdateInput = {
   municipalityName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   municipalityCategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   programa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipoEvento?: Prisma.StringFieldUpdateOperationsInput | string
   instanciaParticipacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generalAllyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   disbursementId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -813,6 +829,7 @@ export type EventCreateManyInput = {
   municipalityName?: string | null
   municipalityCategory?: string | null
   programa?: string | null
+  tipoEvento?: string
   instanciaParticipacion?: string | null
   generalAllyId?: string | null
   disbursementId?: string | null
@@ -848,6 +865,7 @@ export type EventUpdateManyMutationInput = {
   municipalityName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   municipalityCategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   programa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipoEvento?: Prisma.StringFieldUpdateOperationsInput | string
   instanciaParticipacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generalAllyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -880,6 +898,7 @@ export type EventUncheckedUpdateManyInput = {
   municipalityName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   municipalityCategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   programa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipoEvento?: Prisma.StringFieldUpdateOperationsInput | string
   instanciaParticipacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generalAllyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   disbursementId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -930,6 +949,7 @@ export type EventCountOrderByAggregateInput = {
   municipalityName?: Prisma.SortOrder
   municipalityCategory?: Prisma.SortOrder
   programa?: Prisma.SortOrder
+  tipoEvento?: Prisma.SortOrder
   instanciaParticipacion?: Prisma.SortOrder
   generalAllyId?: Prisma.SortOrder
   disbursementId?: Prisma.SortOrder
@@ -972,6 +992,7 @@ export type EventMaxOrderByAggregateInput = {
   municipalityName?: Prisma.SortOrder
   municipalityCategory?: Prisma.SortOrder
   programa?: Prisma.SortOrder
+  tipoEvento?: Prisma.SortOrder
   instanciaParticipacion?: Prisma.SortOrder
   generalAllyId?: Prisma.SortOrder
   disbursementId?: Prisma.SortOrder
@@ -1007,6 +1028,7 @@ export type EventMinOrderByAggregateInput = {
   municipalityName?: Prisma.SortOrder
   municipalityCategory?: Prisma.SortOrder
   programa?: Prisma.SortOrder
+  tipoEvento?: Prisma.SortOrder
   instanciaParticipacion?: Prisma.SortOrder
   generalAllyId?: Prisma.SortOrder
   disbursementId?: Prisma.SortOrder
@@ -1279,6 +1301,7 @@ export type EventCreateWithoutCreatedByInput = {
   municipalityName?: string | null
   municipalityCategory?: string | null
   programa?: string | null
+  tipoEvento?: string
   instanciaParticipacion?: string | null
   generalAllyId?: string | null
   deletedAt?: Date | string | null
@@ -1319,6 +1342,7 @@ export type EventUncheckedCreateWithoutCreatedByInput = {
   municipalityName?: string | null
   municipalityCategory?: string | null
   programa?: string | null
+  tipoEvento?: string
   instanciaParticipacion?: string | null
   generalAllyId?: string | null
   disbursementId?: string | null
@@ -1388,6 +1412,7 @@ export type EventScalarWhereInput = {
   municipalityName?: Prisma.StringNullableFilter<"Event"> | string | null
   municipalityCategory?: Prisma.StringNullableFilter<"Event"> | string | null
   programa?: Prisma.StringNullableFilter<"Event"> | string | null
+  tipoEvento?: Prisma.StringFilter<"Event"> | string
   instanciaParticipacion?: Prisma.StringNullableFilter<"Event"> | string | null
   generalAllyId?: Prisma.UuidNullableFilter<"Event"> | string | null
   disbursementId?: Prisma.UuidNullableFilter<"Event"> | string | null
@@ -1423,6 +1448,7 @@ export type EventCreateWithoutItemsInput = {
   municipalityName?: string | null
   municipalityCategory?: string | null
   programa?: string | null
+  tipoEvento?: string
   instanciaParticipacion?: string | null
   generalAllyId?: string | null
   deletedAt?: Date | string | null
@@ -1463,6 +1489,7 @@ export type EventUncheckedCreateWithoutItemsInput = {
   municipalityName?: string | null
   municipalityCategory?: string | null
   programa?: string | null
+  tipoEvento?: string
   instanciaParticipacion?: string | null
   generalAllyId?: string | null
   disbursementId?: string | null
@@ -1519,6 +1546,7 @@ export type EventUpdateWithoutItemsInput = {
   municipalityName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   municipalityCategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   programa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipoEvento?: Prisma.StringFieldUpdateOperationsInput | string
   instanciaParticipacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generalAllyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1559,6 +1587,7 @@ export type EventUncheckedUpdateWithoutItemsInput = {
   municipalityName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   municipalityCategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   programa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipoEvento?: Prisma.StringFieldUpdateOperationsInput | string
   instanciaParticipacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generalAllyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   disbursementId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1599,6 +1628,7 @@ export type EventCreateWithoutAttachmentsInput = {
   municipalityName?: string | null
   municipalityCategory?: string | null
   programa?: string | null
+  tipoEvento?: string
   instanciaParticipacion?: string | null
   generalAllyId?: string | null
   deletedAt?: Date | string | null
@@ -1639,6 +1669,7 @@ export type EventUncheckedCreateWithoutAttachmentsInput = {
   municipalityName?: string | null
   municipalityCategory?: string | null
   programa?: string | null
+  tipoEvento?: string
   instanciaParticipacion?: string | null
   generalAllyId?: string | null
   disbursementId?: string | null
@@ -1695,6 +1726,7 @@ export type EventUpdateWithoutAttachmentsInput = {
   municipalityName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   municipalityCategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   programa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipoEvento?: Prisma.StringFieldUpdateOperationsInput | string
   instanciaParticipacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generalAllyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1735,6 +1767,7 @@ export type EventUncheckedUpdateWithoutAttachmentsInput = {
   municipalityName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   municipalityCategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   programa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipoEvento?: Prisma.StringFieldUpdateOperationsInput | string
   instanciaParticipacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generalAllyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   disbursementId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1775,6 +1808,7 @@ export type EventCreateWithoutQuotationsInput = {
   municipalityName?: string | null
   municipalityCategory?: string | null
   programa?: string | null
+  tipoEvento?: string
   instanciaParticipacion?: string | null
   generalAllyId?: string | null
   deletedAt?: Date | string | null
@@ -1815,6 +1849,7 @@ export type EventUncheckedCreateWithoutQuotationsInput = {
   municipalityName?: string | null
   municipalityCategory?: string | null
   programa?: string | null
+  tipoEvento?: string
   instanciaParticipacion?: string | null
   generalAllyId?: string | null
   disbursementId?: string | null
@@ -1860,6 +1895,7 @@ export type EventCreateWithoutSelectedQuotationInput = {
   municipalityName?: string | null
   municipalityCategory?: string | null
   programa?: string | null
+  tipoEvento?: string
   instanciaParticipacion?: string | null
   generalAllyId?: string | null
   deletedAt?: Date | string | null
@@ -1900,6 +1936,7 @@ export type EventUncheckedCreateWithoutSelectedQuotationInput = {
   municipalityName?: string | null
   municipalityCategory?: string | null
   programa?: string | null
+  tipoEvento?: string
   instanciaParticipacion?: string | null
   generalAllyId?: string | null
   disbursementId?: string | null
@@ -1956,6 +1993,7 @@ export type EventUpdateWithoutQuotationsInput = {
   municipalityName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   municipalityCategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   programa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipoEvento?: Prisma.StringFieldUpdateOperationsInput | string
   instanciaParticipacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generalAllyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1996,6 +2034,7 @@ export type EventUncheckedUpdateWithoutQuotationsInput = {
   municipalityName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   municipalityCategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   programa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipoEvento?: Prisma.StringFieldUpdateOperationsInput | string
   instanciaParticipacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generalAllyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   disbursementId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2047,6 +2086,7 @@ export type EventUpdateWithoutSelectedQuotationInput = {
   municipalityName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   municipalityCategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   programa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipoEvento?: Prisma.StringFieldUpdateOperationsInput | string
   instanciaParticipacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generalAllyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -2087,6 +2127,7 @@ export type EventUncheckedUpdateWithoutSelectedQuotationInput = {
   municipalityName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   municipalityCategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   programa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipoEvento?: Prisma.StringFieldUpdateOperationsInput | string
   instanciaParticipacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generalAllyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   disbursementId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2127,6 +2168,7 @@ export type EventCreateWithoutOfertaEconomicaInput = {
   municipalityName?: string | null
   municipalityCategory?: string | null
   programa?: string | null
+  tipoEvento?: string
   instanciaParticipacion?: string | null
   generalAllyId?: string | null
   deletedAt?: Date | string | null
@@ -2167,6 +2209,7 @@ export type EventUncheckedCreateWithoutOfertaEconomicaInput = {
   municipalityName?: string | null
   municipalityCategory?: string | null
   programa?: string | null
+  tipoEvento?: string
   instanciaParticipacion?: string | null
   generalAllyId?: string | null
   disbursementId?: string | null
@@ -2223,6 +2266,7 @@ export type EventUpdateWithoutOfertaEconomicaInput = {
   municipalityName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   municipalityCategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   programa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipoEvento?: Prisma.StringFieldUpdateOperationsInput | string
   instanciaParticipacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generalAllyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -2263,6 +2307,7 @@ export type EventUncheckedUpdateWithoutOfertaEconomicaInput = {
   municipalityName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   municipalityCategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   programa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipoEvento?: Prisma.StringFieldUpdateOperationsInput | string
   instanciaParticipacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generalAllyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   disbursementId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2303,6 +2348,7 @@ export type EventCreateWithoutDisbursementInput = {
   municipalityName?: string | null
   municipalityCategory?: string | null
   programa?: string | null
+  tipoEvento?: string
   instanciaParticipacion?: string | null
   generalAllyId?: string | null
   deletedAt?: Date | string | null
@@ -2343,6 +2389,7 @@ export type EventUncheckedCreateWithoutDisbursementInput = {
   municipalityName?: string | null
   municipalityCategory?: string | null
   programa?: string | null
+  tipoEvento?: string
   instanciaParticipacion?: string | null
   generalAllyId?: string | null
   createdById: string
@@ -2409,6 +2456,7 @@ export type EventCreateWithoutPaymentsInput = {
   municipalityName?: string | null
   municipalityCategory?: string | null
   programa?: string | null
+  tipoEvento?: string
   instanciaParticipacion?: string | null
   generalAllyId?: string | null
   deletedAt?: Date | string | null
@@ -2449,6 +2497,7 @@ export type EventUncheckedCreateWithoutPaymentsInput = {
   municipalityName?: string | null
   municipalityCategory?: string | null
   programa?: string | null
+  tipoEvento?: string
   instanciaParticipacion?: string | null
   generalAllyId?: string | null
   disbursementId?: string | null
@@ -2505,6 +2554,7 @@ export type EventUpdateWithoutPaymentsInput = {
   municipalityName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   municipalityCategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   programa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipoEvento?: Prisma.StringFieldUpdateOperationsInput | string
   instanciaParticipacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generalAllyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -2545,6 +2595,7 @@ export type EventUncheckedUpdateWithoutPaymentsInput = {
   municipalityName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   municipalityCategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   programa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipoEvento?: Prisma.StringFieldUpdateOperationsInput | string
   instanciaParticipacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generalAllyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   disbursementId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2585,6 +2636,7 @@ export type EventCreateWithoutNotificationsInput = {
   municipalityName?: string | null
   municipalityCategory?: string | null
   programa?: string | null
+  tipoEvento?: string
   instanciaParticipacion?: string | null
   generalAllyId?: string | null
   deletedAt?: Date | string | null
@@ -2625,6 +2677,7 @@ export type EventUncheckedCreateWithoutNotificationsInput = {
   municipalityName?: string | null
   municipalityCategory?: string | null
   programa?: string | null
+  tipoEvento?: string
   instanciaParticipacion?: string | null
   generalAllyId?: string | null
   disbursementId?: string | null
@@ -2681,6 +2734,7 @@ export type EventUpdateWithoutNotificationsInput = {
   municipalityName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   municipalityCategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   programa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipoEvento?: Prisma.StringFieldUpdateOperationsInput | string
   instanciaParticipacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generalAllyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -2721,6 +2775,7 @@ export type EventUncheckedUpdateWithoutNotificationsInput = {
   municipalityName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   municipalityCategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   programa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipoEvento?: Prisma.StringFieldUpdateOperationsInput | string
   instanciaParticipacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generalAllyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   disbursementId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2761,6 +2816,7 @@ export type EventCreateManyCreatedByInput = {
   municipalityName?: string | null
   municipalityCategory?: string | null
   programa?: string | null
+  tipoEvento?: string
   instanciaParticipacion?: string | null
   generalAllyId?: string | null
   disbursementId?: string | null
@@ -2795,6 +2851,7 @@ export type EventUpdateWithoutCreatedByInput = {
   municipalityName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   municipalityCategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   programa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipoEvento?: Prisma.StringFieldUpdateOperationsInput | string
   instanciaParticipacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generalAllyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -2835,6 +2892,7 @@ export type EventUncheckedUpdateWithoutCreatedByInput = {
   municipalityName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   municipalityCategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   programa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipoEvento?: Prisma.StringFieldUpdateOperationsInput | string
   instanciaParticipacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generalAllyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   disbursementId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2875,6 +2933,7 @@ export type EventUncheckedUpdateManyWithoutCreatedByInput = {
   municipalityName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   municipalityCategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   programa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipoEvento?: Prisma.StringFieldUpdateOperationsInput | string
   instanciaParticipacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generalAllyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   disbursementId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2909,6 +2968,7 @@ export type EventCreateManyDisbursementInput = {
   municipalityName?: string | null
   municipalityCategory?: string | null
   programa?: string | null
+  tipoEvento?: string
   instanciaParticipacion?: string | null
   generalAllyId?: string | null
   createdById: string
@@ -2943,6 +3003,7 @@ export type EventUpdateWithoutDisbursementInput = {
   municipalityName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   municipalityCategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   programa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipoEvento?: Prisma.StringFieldUpdateOperationsInput | string
   instanciaParticipacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generalAllyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -2983,6 +3044,7 @@ export type EventUncheckedUpdateWithoutDisbursementInput = {
   municipalityName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   municipalityCategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   programa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipoEvento?: Prisma.StringFieldUpdateOperationsInput | string
   instanciaParticipacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generalAllyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdById?: Prisma.StringFieldUpdateOperationsInput | string
@@ -3023,6 +3085,7 @@ export type EventUncheckedUpdateManyWithoutDisbursementInput = {
   municipalityName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   municipalityCategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   programa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipoEvento?: Prisma.StringFieldUpdateOperationsInput | string
   instanciaParticipacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generalAllyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdById?: Prisma.StringFieldUpdateOperationsInput | string
@@ -3124,6 +3187,7 @@ export type EventSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   municipalityName?: boolean
   municipalityCategory?: boolean
   programa?: boolean
+  tipoEvento?: boolean
   instanciaParticipacion?: boolean
   generalAllyId?: boolean
   disbursementId?: boolean
@@ -3169,6 +3233,7 @@ export type EventSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   municipalityName?: boolean
   municipalityCategory?: boolean
   programa?: boolean
+  tipoEvento?: boolean
   instanciaParticipacion?: boolean
   generalAllyId?: boolean
   disbursementId?: boolean
@@ -3207,6 +3272,7 @@ export type EventSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   municipalityName?: boolean
   municipalityCategory?: boolean
   programa?: boolean
+  tipoEvento?: boolean
   instanciaParticipacion?: boolean
   generalAllyId?: boolean
   disbursementId?: boolean
@@ -3245,6 +3311,7 @@ export type EventSelectScalar = {
   municipalityName?: boolean
   municipalityCategory?: boolean
   programa?: boolean
+  tipoEvento?: boolean
   instanciaParticipacion?: boolean
   generalAllyId?: boolean
   disbursementId?: boolean
@@ -3256,7 +3323,7 @@ export type EventSelectScalar = {
   updatedAt?: boolean
 }
 
-export type EventOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "code" | "suffix" | "schemaType" | "name" | "description" | "status" | "observation" | "authorizeException" | "devolucionLegalizacion" | "devueltoDesde" | "startDate" | "endDate" | "dependency" | "hamlet" | "attendees" | "days" | "latitude" | "longitude" | "divipolaCode" | "municipalityName" | "municipalityCategory" | "programa" | "instanciaParticipacion" | "generalAllyId" | "disbursementId" | "createdById" | "cotizacionSeleccionadaId" | "deletedAt" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["event"]>
+export type EventOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "code" | "suffix" | "schemaType" | "name" | "description" | "status" | "observation" | "authorizeException" | "devolucionLegalizacion" | "devueltoDesde" | "startDate" | "endDate" | "dependency" | "hamlet" | "attendees" | "days" | "latitude" | "longitude" | "divipolaCode" | "municipalityName" | "municipalityCategory" | "programa" | "tipoEvento" | "instanciaParticipacion" | "generalAllyId" | "disbursementId" | "createdById" | "cotizacionSeleccionadaId" | "deletedAt" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["event"]>
 export type EventInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   disbursement?: boolean | Prisma.Event$disbursementArgs<ExtArgs>
   createdBy?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -3317,6 +3384,7 @@ export type $EventPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     municipalityName: string | null
     municipalityCategory: string | null
     programa: string | null
+    tipoEvento: string
     instanciaParticipacion: string | null
     generalAllyId: string | null
     disbursementId: string | null
@@ -3781,6 +3849,7 @@ export interface EventFieldRefs {
   readonly municipalityName: Prisma.FieldRef<"Event", 'String'>
   readonly municipalityCategory: Prisma.FieldRef<"Event", 'String'>
   readonly programa: Prisma.FieldRef<"Event", 'String'>
+  readonly tipoEvento: Prisma.FieldRef<"Event", 'String'>
   readonly instanciaParticipacion: Prisma.FieldRef<"Event", 'String'>
   readonly generalAllyId: Prisma.FieldRef<"Event", 'String'>
   readonly disbursementId: Prisma.FieldRef<"Event", 'String'>

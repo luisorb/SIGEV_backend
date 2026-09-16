@@ -67,6 +67,7 @@ model Event {
   municipalityName     String?      @db.VarChar(100)
   municipalityCategory String?      @db.VarChar(50)
   programa              String?      @db.VarChar(50)
+  tipoEvento            String       @default("") @db.VarChar(255)
   instanciaParticipacion String?     @db.VarChar(200)
   generalAllyId        String?      @db.Uuid
   disbursementId       String?      @db.Uuid

@@ -4,6 +4,7 @@ import {
 import { Type } from 'class-transformer';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { CreateItemDto } from '../../items/dto';
+import { EVENT_TYPES, PARTICIPATION_INSTANCES } from '../../../config/constants';
 
 export class CreateEventDto {
   @ApiProperty({ example: 'EVT-2026-001' })
@@ -106,8 +107,15 @@ export class CreateEventDto {
   @IsString()
   programa?: string;
 
-  @ApiPropertyOptional({ description: 'Instancia de participación según el programa' })
+  @ApiPropertyOptional({ description: 'Tipo de evento', enum: EVENT_TYPES })
   @IsOptional()
   @IsString()
+  @IsIn([...EVENT_TYPES, ''])
+  tipoEvento?: string;
+
+  @ApiPropertyOptional({ description: 'Instancia de participación (solo los 4 consejos)', enum: PARTICIPATION_INSTANCES })
+  @IsOptional()
+  @IsString()
+  @IsIn([...PARTICIPATION_INSTANCES, ''])
   instanciaParticipacion?: string;
 }
