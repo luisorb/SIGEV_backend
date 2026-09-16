@@ -27,7 +27,8 @@ export class CreateQuotationItemDto {
 
   @ApiPropertyOptional({
     example: 12000,
-    description: 'Valor unitario manual (solo para ítems NO_TARIFADO; se bloquea si hay tariffId)',
+    description:
+      'Valor unitario negociado. Para ítems tarifados (con tariffId) se honra este valor y se valida que no supere el precio del tarifario; si no se envía, se usa el precio del tarifario. Para ítems NO_TARIFADO es requerido.',
   })
   @IsOptional()
   @IsNumber()

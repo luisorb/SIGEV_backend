@@ -85,7 +85,12 @@ export class QuotationsService {
         undefined,
         event.startDate ?? null,
       );
-      unitPrice = Number(resolved.unitPrice);
+      if (dto.unitPrice !== undefined && dto.unitPrice > Number(resolved.unitPrice)) {
+        throw new BadRequestException(
+          'El valor unitario no puede superar el precio del tarifario del servicio',
+        );
+      }
+      unitPrice = dto.unitPrice ?? Number(resolved.unitPrice);
       if (!description) {
         description = resolved.name;
       }
