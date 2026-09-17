@@ -25,6 +25,7 @@ import { BackupModule } from './modules/backup/backup.module';
 import { SupabaseModule } from './modules/supabase/supabase.module';
 import { NotificationsModule } from './modules/notifications/notifications.module';
 import { PaymentsModule } from './modules/payments/payments.module';
+import { MailModule } from './modules/mail/mail.module';
 
 @Module({
   imports: [
@@ -53,6 +54,7 @@ import { PaymentsModule } from './modules/payments/payments.module';
     BackupModule,
     NotificationsModule,
     PaymentsModule,
+    MailModule,
   ],
   providers: [
     {

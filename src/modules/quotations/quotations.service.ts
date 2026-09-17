@@ -14,6 +14,7 @@ import { ReportsService } from '../reports/reports.service';
 import { AttachmentsService } from '../attachments/attachments.service';
 import { OfertaEconomicaService } from '../oferta-economica/oferta-economica.service';
 import { NotificationsService } from '../notifications/notifications.service';
+import { MailService } from '../mail/mail.service';
 import { ROLES, EVENT_STATUS } from '../../config/constants';
 
 const quotationInclude = {
@@ -45,6 +46,7 @@ export class QuotationsService {
     private readonly attachmentsService: AttachmentsService,
     private readonly ofertaEconomicaService: OfertaEconomicaService,
     private readonly notificationsService: NotificationsService,
+    private readonly mailService: MailService,
   ) {}
 
   private roleNames(roles: { name: string }[]): string[] {
@@ -529,6 +531,15 @@ export class QuotationsService {
     }
 
     await this.notifyApproved(quotation);
+
+    await this.mailService.sendQuotationApproved({
+      quotationCode: quotation.code,
+      amount: Number(quotation.amount),
+      itemsCount: quotation.items.length,
+      eventLabel: `${quotation.event.code}${quotation.event.suffix ? `-${quotation.event.suffix}` : ''}`,
+      approvedBy: user.fullName,
+      approvedAt: new Date(),
+    });
 
     return updated;
   }

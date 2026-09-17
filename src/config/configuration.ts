@@ -28,6 +28,14 @@ export default () => ({
     serviceRoleKey: process.env.SUPABASE_SERVICE_ROLE_KEY || '',
     bucket: process.env.SUPABASE_BUCKET || 'soportes-documentales',
   },
+  resend: {
+    apiKey: process.env.RESEND_API_KEY || '',
+    from: process.env.MAIL_FROM || 'SIGEV <onboarding@resend.dev>',
+    quotationApprovedRecipients: (process.env.QUOTATION_APPROVED_RECIPIENTS || '')
+      .split(',')
+      .map((email) => email.trim())
+      .filter((email) => email.length > 0),
+  },
   backup: {
     dir: process.env.BACKUP_DIR || './backups',
     pgDumpPath: process.env.PG_DUMP_PATH || 'C:\\Program Files\\PostgreSQL\\14\\bin\\pg_dump.exe',
