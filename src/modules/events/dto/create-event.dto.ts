@@ -113,7 +113,7 @@ export class CreateEventDto {
   @IsIn([...EVENT_TYPES, ''])
   tipoEvento?: string;
 
-  @ApiPropertyOptional({ description: 'Instancia de participación (solo los 4 consejos)', enum: PARTICIPATION_INSTANCES })
+  @ApiPropertyOptional({ description: 'Instancia de participación (los 4 consejos o NO APLICA)', enum: PARTICIPATION_INSTANCES })
   @IsOptional()
   @IsString()
   @IsIn([...PARTICIPATION_INSTANCES, ''])

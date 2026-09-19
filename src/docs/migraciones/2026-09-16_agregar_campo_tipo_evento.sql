@@ -59,7 +59,7 @@ ALTER TABLE "events"
         )
     );
 
--- 4. Restricción CHECK: instanciaParticipacion solo acepta los 4 consejos (o vacío/nulo)
+-- 4. Restricción CHECK: instanciaParticipacion solo acepta los 4 consejos, NO APLICA (o vacío/nulo)
 ALTER TABLE "events"
     ADD CONSTRAINT "events_instancia_participacion_check"
     CHECK (
@@ -69,6 +69,7 @@ ALTER TABLE "events"
             'CONSEJO PERMANENTE DE DIRECCIÓN',
             'CONSEJO ASESOR TERRITORIAL',
             'CONSEJO MUNICIPAL DE PLANEACIÓN',
-            'CONSEJO MUNICIPAL DE EVALUACIÓN Y SEGUIMIENTO'
+            'CONSEJO MUNICIPAL DE EVALUACIÓN Y SEGUIMIENTO',
+            'NO APLICA'
         )
     );
