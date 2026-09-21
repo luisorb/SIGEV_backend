@@ -18,8 +18,8 @@ export class EventCatalogsController {
   constructor(private readonly eventCatalogsService: EventCatalogsService) {}
 
   @Post()
-  @Roles(ROLES.OPERATOR)
-  @ApiOperation({ summary: 'Crear evento del catálogo (solo Operador)' })
+  @Roles(ROLES.OPERATOR, ROLES.SOLICITANTE)
+  @ApiOperation({ summary: 'Crear evento del catálogo (Operador o Solicitante)' })
   create(@Body() dto: CreateEventCatalogDto, @CurrentUser() user: UserWithRoles) {
     return this.eventCatalogsService.create(dto, user);
   }

@@ -107,10 +107,9 @@ export class CreateEventDto {
   @IsString()
   programa?: string;
 
-  @ApiPropertyOptional({ description: 'Tipo de evento', enum: EVENT_TYPES })
+  @ApiPropertyOptional({ description: 'Tipo de evento (catálogo dinámico)', enum: EVENT_TYPES })
   @IsOptional()
   @IsString()
-  @IsIn([...EVENT_TYPES, ''])
   tipoEvento?: string;
 
   @ApiPropertyOptional({ description: 'Instancia de participación (los 4 consejos o NO APLICA)', enum: PARTICIPATION_INSTANCES })
