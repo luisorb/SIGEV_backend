@@ -11,6 +11,7 @@
 export type * from './models/User'
 export type * from './models/Role'
 export type * from './models/Event'
+export type * from './models/EventCatalog'
 export type * from './models/Item'
 export type * from './models/Attachment'
 export type * from './models/Parameter'

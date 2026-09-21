@@ -19,6 +19,7 @@ model User {
   allyId               String?           @db.Uuid
   ally                 Ally?             @relation(fields: [allyId], references: [id])
   createdEvents        Event[]           @relation("EventCreatedBy")
+  eventCatalogs        EventCatalog[]    @relation("EventCatalogCreatedBy")
   uploadedAttachments  Attachment[]      @relation("AttachmentUploadedBy")
   quotations           Quotation[]       @relation("QuotationCreatedBy")
   quotationsValidated  Quotation[]       @relation("QuotationValidatedBy")
@@ -89,6 +90,19 @@ model Event {
 
   @@map("events")
   @@unique([code, suffix])
+}
+
+model EventCatalog {
+  id          String    @id @default(uuid()) @db.Uuid
+  name        String    @unique @db.VarChar(100)
+  createdById String    @db.Uuid
+  createdBy   User      @relation("EventCatalogCreatedBy", fields: [createdById], references: [id])
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now()) @db.Timestamptz
+  updatedAt   DateTime  @updatedAt @db.Timestamptz
+
+  @@map("event_catalogs")
+  @@index([createdById])
 }
 
 model Item {

@@ -400,6 +400,7 @@ export const ModelName = {
   User: 'User',
   Role: 'Role',
   Event: 'Event',
+  EventCatalog: 'EventCatalog',
   Item: 'Item',
   Attachment: 'Attachment',
   Parameter: 'Parameter',
@@ -431,7 +432,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "role" | "event" | "item" | "attachment" | "parameter" | "parameterVersion" | "ally" | "quotation" | "quotationItem" | "ofertaEconomica" | "ofertaEconomicaItem" | "disbursement" | "payment" | "paymentItem" | "tariff" | "auditLog" | "municipality" | "notification"
+    modelProps: "user" | "role" | "event" | "eventCatalog" | "item" | "attachment" | "parameter" | "parameterVersion" | "ally" | "quotation" | "quotationItem" | "ofertaEconomica" | "ofertaEconomicaItem" | "disbursement" | "payment" | "paymentItem" | "tariff" | "auditLog" | "municipality" | "notification"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -654,6 +655,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.EventCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.EventCountAggregateOutputType> | number
+        }
+      }
+    }
+    EventCatalog: {
+      payload: Prisma.$EventCatalogPayload<ExtArgs>
+      fields: Prisma.EventCatalogFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EventCatalogFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EventCatalogPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EventCatalogFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EventCatalogPayload>
+        }
+        findFirst: {
+          args: Prisma.EventCatalogFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EventCatalogPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EventCatalogFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EventCatalogPayload>
+        }
+        findMany: {
+          args: Prisma.EventCatalogFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EventCatalogPayload>[]
+        }
+        create: {
+          args: Prisma.EventCatalogCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EventCatalogPayload>
+        }
+        createMany: {
+          args: Prisma.EventCatalogCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EventCatalogCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EventCatalogPayload>[]
+        }
+        delete: {
+          args: Prisma.EventCatalogDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EventCatalogPayload>
+        }
+        update: {
+          args: Prisma.EventCatalogUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EventCatalogPayload>
+        }
+        deleteMany: {
+          args: Prisma.EventCatalogDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EventCatalogUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EventCatalogUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EventCatalogPayload>[]
+        }
+        upsert: {
+          args: Prisma.EventCatalogUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EventCatalogPayload>
+        }
+        aggregate: {
+          args: Prisma.EventCatalogAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEventCatalog>
+        }
+        groupBy: {
+          args: Prisma.EventCatalogGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EventCatalogGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EventCatalogCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EventCatalogCountAggregateOutputType> | number
         }
       }
     }
@@ -1944,6 +2019,18 @@ export const EventScalarFieldEnum = {
 export type EventScalarFieldEnum = (typeof EventScalarFieldEnum)[keyof typeof EventScalarFieldEnum]
 
 
+export const EventCatalogScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  createdById: 'createdById',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EventCatalogScalarFieldEnum = (typeof EventCatalogScalarFieldEnum)[keyof typeof EventCatalogScalarFieldEnum]
+
+
 export const ItemScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -2561,6 +2648,7 @@ export type GlobalOmitConfig = {
   user?: Prisma.UserOmit
   role?: Prisma.RoleOmit
   event?: Prisma.EventOmit
+  eventCatalog?: Prisma.EventCatalogOmit
   item?: Prisma.ItemOmit
   attachment?: Prisma.AttachmentOmit
   parameter?: Prisma.ParameterOmit

@@ -33,6 +33,11 @@ export type Role = Prisma.RoleModel
  */
 export type Event = Prisma.EventModel
 /**
+ * Model EventCatalog
+ * 
+ */
+export type EventCatalog = Prisma.EventCatalogModel
+/**
  * Model Item
  * 
  */

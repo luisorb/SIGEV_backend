@@ -217,6 +217,7 @@ export type UserWhereInput = {
   roles?: Prisma.RoleListRelationFilter
   ally?: Prisma.XOR<Prisma.AllyNullableScalarRelationFilter, Prisma.AllyWhereInput> | null
   createdEvents?: Prisma.EventListRelationFilter
+  eventCatalogs?: Prisma.EventCatalogListRelationFilter
   uploadedAttachments?: Prisma.AttachmentListRelationFilter
   quotations?: Prisma.QuotationListRelationFilter
   quotationsValidated?: Prisma.QuotationListRelationFilter
@@ -240,6 +241,7 @@ export type UserOrderByWithRelationInput = {
   roles?: Prisma.RoleOrderByRelationAggregateInput
   ally?: Prisma.AllyOrderByWithRelationInput
   createdEvents?: Prisma.EventOrderByRelationAggregateInput
+  eventCatalogs?: Prisma.EventCatalogOrderByRelationAggregateInput
   uploadedAttachments?: Prisma.AttachmentOrderByRelationAggregateInput
   quotations?: Prisma.QuotationOrderByRelationAggregateInput
   quotationsValidated?: Prisma.QuotationOrderByRelationAggregateInput
@@ -266,6 +268,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   roles?: Prisma.RoleListRelationFilter
   ally?: Prisma.XOR<Prisma.AllyNullableScalarRelationFilter, Prisma.AllyWhereInput> | null
   createdEvents?: Prisma.EventListRelationFilter
+  eventCatalogs?: Prisma.EventCatalogListRelationFilter
   uploadedAttachments?: Prisma.AttachmentListRelationFilter
   quotations?: Prisma.QuotationListRelationFilter
   quotationsValidated?: Prisma.QuotationListRelationFilter
@@ -318,6 +321,7 @@ export type UserCreateInput = {
   roles?: Prisma.RoleCreateNestedManyWithoutUsersInput
   ally?: Prisma.AllyCreateNestedOneWithoutUsersInput
   createdEvents?: Prisma.EventCreateNestedManyWithoutCreatedByInput
+  eventCatalogs?: Prisma.EventCatalogCreateNestedManyWithoutCreatedByInput
   uploadedAttachments?: Prisma.AttachmentCreateNestedManyWithoutUploadedByInput
   quotations?: Prisma.QuotationCreateNestedManyWithoutCreatedByInput
   quotationsValidated?: Prisma.QuotationCreateNestedManyWithoutValidadaPorInput
@@ -340,6 +344,7 @@ export type UserUncheckedCreateInput = {
   updatedAt?: Date | string
   roles?: Prisma.RoleUncheckedCreateNestedManyWithoutUsersInput
   createdEvents?: Prisma.EventUncheckedCreateNestedManyWithoutCreatedByInput
+  eventCatalogs?: Prisma.EventCatalogUncheckedCreateNestedManyWithoutCreatedByInput
   uploadedAttachments?: Prisma.AttachmentUncheckedCreateNestedManyWithoutUploadedByInput
   quotations?: Prisma.QuotationUncheckedCreateNestedManyWithoutCreatedByInput
   quotationsValidated?: Prisma.QuotationUncheckedCreateNestedManyWithoutValidadaPorInput
@@ -362,6 +367,7 @@ export type UserUpdateInput = {
   roles?: Prisma.RoleUpdateManyWithoutUsersNestedInput
   ally?: Prisma.AllyUpdateOneWithoutUsersNestedInput
   createdEvents?: Prisma.EventUpdateManyWithoutCreatedByNestedInput
+  eventCatalogs?: Prisma.EventCatalogUpdateManyWithoutCreatedByNestedInput
   uploadedAttachments?: Prisma.AttachmentUpdateManyWithoutUploadedByNestedInput
   quotations?: Prisma.QuotationUpdateManyWithoutCreatedByNestedInput
   quotationsValidated?: Prisma.QuotationUpdateManyWithoutValidadaPorNestedInput
@@ -384,6 +390,7 @@ export type UserUncheckedUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   roles?: Prisma.RoleUncheckedUpdateManyWithoutUsersNestedInput
   createdEvents?: Prisma.EventUncheckedUpdateManyWithoutCreatedByNestedInput
+  eventCatalogs?: Prisma.EventCatalogUncheckedUpdateManyWithoutCreatedByNestedInput
   uploadedAttachments?: Prisma.AttachmentUncheckedUpdateManyWithoutUploadedByNestedInput
   quotations?: Prisma.QuotationUncheckedUpdateManyWithoutCreatedByNestedInput
   quotationsValidated?: Prisma.QuotationUncheckedUpdateManyWithoutValidadaPorNestedInput
@@ -551,6 +558,20 @@ export type UserUpdateOneRequiredWithoutCreatedEventsNestedInput = {
   upsert?: Prisma.UserUpsertWithoutCreatedEventsInput
   connect?: Prisma.UserWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutCreatedEventsInput, Prisma.UserUpdateWithoutCreatedEventsInput>, Prisma.UserUncheckedUpdateWithoutCreatedEventsInput>
+}
+
+export type UserCreateNestedOneWithoutEventCatalogsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutEventCatalogsInput, Prisma.UserUncheckedCreateWithoutEventCatalogsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutEventCatalogsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutEventCatalogsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutEventCatalogsInput, Prisma.UserUncheckedCreateWithoutEventCatalogsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutEventCatalogsInput
+  upsert?: Prisma.UserUpsertWithoutEventCatalogsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutEventCatalogsInput, Prisma.UserUpdateWithoutEventCatalogsInput>, Prisma.UserUncheckedUpdateWithoutEventCatalogsInput>
 }
 
 export type UserCreateNestedOneWithoutUploadedAttachmentsInput = {
@@ -722,6 +743,7 @@ export type UserCreateWithoutRolesInput = {
   updatedAt?: Date | string
   ally?: Prisma.AllyCreateNestedOneWithoutUsersInput
   createdEvents?: Prisma.EventCreateNestedManyWithoutCreatedByInput
+  eventCatalogs?: Prisma.EventCatalogCreateNestedManyWithoutCreatedByInput
   uploadedAttachments?: Prisma.AttachmentCreateNestedManyWithoutUploadedByInput
   quotations?: Prisma.QuotationCreateNestedManyWithoutCreatedByInput
   quotationsValidated?: Prisma.QuotationCreateNestedManyWithoutValidadaPorInput
@@ -743,6 +765,7 @@ export type UserUncheckedCreateWithoutRolesInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   createdEvents?: Prisma.EventUncheckedCreateNestedManyWithoutCreatedByInput
+  eventCatalogs?: Prisma.EventCatalogUncheckedCreateNestedManyWithoutCreatedByInput
   uploadedAttachments?: Prisma.AttachmentUncheckedCreateNestedManyWithoutUploadedByInput
   quotations?: Prisma.QuotationUncheckedCreateNestedManyWithoutCreatedByInput
   quotationsValidated?: Prisma.QuotationUncheckedCreateNestedManyWithoutValidadaPorInput
@@ -800,6 +823,7 @@ export type UserCreateWithoutCreatedEventsInput = {
   updatedAt?: Date | string
   roles?: Prisma.RoleCreateNestedManyWithoutUsersInput
   ally?: Prisma.AllyCreateNestedOneWithoutUsersInput
+  eventCatalogs?: Prisma.EventCatalogCreateNestedManyWithoutCreatedByInput
   uploadedAttachments?: Prisma.AttachmentCreateNestedManyWithoutUploadedByInput
   quotations?: Prisma.QuotationCreateNestedManyWithoutCreatedByInput
   quotationsValidated?: Prisma.QuotationCreateNestedManyWithoutValidadaPorInput
@@ -821,6 +845,7 @@ export type UserUncheckedCreateWithoutCreatedEventsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   roles?: Prisma.RoleUncheckedCreateNestedManyWithoutUsersInput
+  eventCatalogs?: Prisma.EventCatalogUncheckedCreateNestedManyWithoutCreatedByInput
   uploadedAttachments?: Prisma.AttachmentUncheckedCreateNestedManyWithoutUploadedByInput
   quotations?: Prisma.QuotationUncheckedCreateNestedManyWithoutCreatedByInput
   quotationsValidated?: Prisma.QuotationUncheckedCreateNestedManyWithoutValidadaPorInput
@@ -858,6 +883,7 @@ export type UserUpdateWithoutCreatedEventsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   roles?: Prisma.RoleUpdateManyWithoutUsersNestedInput
   ally?: Prisma.AllyUpdateOneWithoutUsersNestedInput
+  eventCatalogs?: Prisma.EventCatalogUpdateManyWithoutCreatedByNestedInput
   uploadedAttachments?: Prisma.AttachmentUpdateManyWithoutUploadedByNestedInput
   quotations?: Prisma.QuotationUpdateManyWithoutCreatedByNestedInput
   quotationsValidated?: Prisma.QuotationUpdateManyWithoutValidadaPorNestedInput
@@ -879,6 +905,111 @@ export type UserUncheckedUpdateWithoutCreatedEventsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   roles?: Prisma.RoleUncheckedUpdateManyWithoutUsersNestedInput
+  eventCatalogs?: Prisma.EventCatalogUncheckedUpdateManyWithoutCreatedByNestedInput
+  uploadedAttachments?: Prisma.AttachmentUncheckedUpdateManyWithoutUploadedByNestedInput
+  quotations?: Prisma.QuotationUncheckedUpdateManyWithoutCreatedByNestedInput
+  quotationsValidated?: Prisma.QuotationUncheckedUpdateManyWithoutValidadaPorNestedInput
+  quotationsApproved?: Prisma.QuotationUncheckedUpdateManyWithoutAprobadaPorNestedInput
+  ofertaEconomicas?: Prisma.OfertaEconomicaUncheckedUpdateManyWithoutCreatedByNestedInput
+  parameterVersions?: Prisma.ParameterVersionUncheckedUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  paymentsCreated?: Prisma.PaymentUncheckedUpdateManyWithoutCreatedByNestedInput
+}
+
+export type UserCreateWithoutEventCatalogsInput = {
+  id?: string
+  document: string
+  fullName: string
+  email: string
+  password: string
+  isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  roles?: Prisma.RoleCreateNestedManyWithoutUsersInput
+  ally?: Prisma.AllyCreateNestedOneWithoutUsersInput
+  createdEvents?: Prisma.EventCreateNestedManyWithoutCreatedByInput
+  uploadedAttachments?: Prisma.AttachmentCreateNestedManyWithoutUploadedByInput
+  quotations?: Prisma.QuotationCreateNestedManyWithoutCreatedByInput
+  quotationsValidated?: Prisma.QuotationCreateNestedManyWithoutValidadaPorInput
+  quotationsApproved?: Prisma.QuotationCreateNestedManyWithoutAprobadaPorInput
+  ofertaEconomicas?: Prisma.OfertaEconomicaCreateNestedManyWithoutCreatedByInput
+  parameterVersions?: Prisma.ParameterVersionCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  paymentsCreated?: Prisma.PaymentCreateNestedManyWithoutCreatedByInput
+}
+
+export type UserUncheckedCreateWithoutEventCatalogsInput = {
+  id?: string
+  document: string
+  fullName: string
+  email: string
+  password: string
+  isActive?: boolean
+  allyId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  roles?: Prisma.RoleUncheckedCreateNestedManyWithoutUsersInput
+  createdEvents?: Prisma.EventUncheckedCreateNestedManyWithoutCreatedByInput
+  uploadedAttachments?: Prisma.AttachmentUncheckedCreateNestedManyWithoutUploadedByInput
+  quotations?: Prisma.QuotationUncheckedCreateNestedManyWithoutCreatedByInput
+  quotationsValidated?: Prisma.QuotationUncheckedCreateNestedManyWithoutValidadaPorInput
+  quotationsApproved?: Prisma.QuotationUncheckedCreateNestedManyWithoutAprobadaPorInput
+  ofertaEconomicas?: Prisma.OfertaEconomicaUncheckedCreateNestedManyWithoutCreatedByInput
+  parameterVersions?: Prisma.ParameterVersionUncheckedCreateNestedManyWithoutCreatedByInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  paymentsCreated?: Prisma.PaymentUncheckedCreateNestedManyWithoutCreatedByInput
+}
+
+export type UserCreateOrConnectWithoutEventCatalogsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutEventCatalogsInput, Prisma.UserUncheckedCreateWithoutEventCatalogsInput>
+}
+
+export type UserUpsertWithoutEventCatalogsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutEventCatalogsInput, Prisma.UserUncheckedUpdateWithoutEventCatalogsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutEventCatalogsInput, Prisma.UserUncheckedCreateWithoutEventCatalogsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutEventCatalogsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutEventCatalogsInput, Prisma.UserUncheckedUpdateWithoutEventCatalogsInput>
+}
+
+export type UserUpdateWithoutEventCatalogsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  document?: Prisma.StringFieldUpdateOperationsInput | string
+  fullName?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  roles?: Prisma.RoleUpdateManyWithoutUsersNestedInput
+  ally?: Prisma.AllyUpdateOneWithoutUsersNestedInput
+  createdEvents?: Prisma.EventUpdateManyWithoutCreatedByNestedInput
+  uploadedAttachments?: Prisma.AttachmentUpdateManyWithoutUploadedByNestedInput
+  quotations?: Prisma.QuotationUpdateManyWithoutCreatedByNestedInput
+  quotationsValidated?: Prisma.QuotationUpdateManyWithoutValidadaPorNestedInput
+  quotationsApproved?: Prisma.QuotationUpdateManyWithoutAprobadaPorNestedInput
+  ofertaEconomicas?: Prisma.OfertaEconomicaUpdateManyWithoutCreatedByNestedInput
+  parameterVersions?: Prisma.ParameterVersionUpdateManyWithoutCreatedByNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  paymentsCreated?: Prisma.PaymentUpdateManyWithoutCreatedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutEventCatalogsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  document?: Prisma.StringFieldUpdateOperationsInput | string
+  fullName?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  allyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  roles?: Prisma.RoleUncheckedUpdateManyWithoutUsersNestedInput
+  createdEvents?: Prisma.EventUncheckedUpdateManyWithoutCreatedByNestedInput
   uploadedAttachments?: Prisma.AttachmentUncheckedUpdateManyWithoutUploadedByNestedInput
   quotations?: Prisma.QuotationUncheckedUpdateManyWithoutCreatedByNestedInput
   quotationsValidated?: Prisma.QuotationUncheckedUpdateManyWithoutValidadaPorNestedInput
@@ -901,6 +1032,7 @@ export type UserCreateWithoutUploadedAttachmentsInput = {
   roles?: Prisma.RoleCreateNestedManyWithoutUsersInput
   ally?: Prisma.AllyCreateNestedOneWithoutUsersInput
   createdEvents?: Prisma.EventCreateNestedManyWithoutCreatedByInput
+  eventCatalogs?: Prisma.EventCatalogCreateNestedManyWithoutCreatedByInput
   quotations?: Prisma.QuotationCreateNestedManyWithoutCreatedByInput
   quotationsValidated?: Prisma.QuotationCreateNestedManyWithoutValidadaPorInput
   quotationsApproved?: Prisma.QuotationCreateNestedManyWithoutAprobadaPorInput
@@ -922,6 +1054,7 @@ export type UserUncheckedCreateWithoutUploadedAttachmentsInput = {
   updatedAt?: Date | string
   roles?: Prisma.RoleUncheckedCreateNestedManyWithoutUsersInput
   createdEvents?: Prisma.EventUncheckedCreateNestedManyWithoutCreatedByInput
+  eventCatalogs?: Prisma.EventCatalogUncheckedCreateNestedManyWithoutCreatedByInput
   quotations?: Prisma.QuotationUncheckedCreateNestedManyWithoutCreatedByInput
   quotationsValidated?: Prisma.QuotationUncheckedCreateNestedManyWithoutValidadaPorInput
   quotationsApproved?: Prisma.QuotationUncheckedCreateNestedManyWithoutAprobadaPorInput
@@ -959,6 +1092,7 @@ export type UserUpdateWithoutUploadedAttachmentsInput = {
   roles?: Prisma.RoleUpdateManyWithoutUsersNestedInput
   ally?: Prisma.AllyUpdateOneWithoutUsersNestedInput
   createdEvents?: Prisma.EventUpdateManyWithoutCreatedByNestedInput
+  eventCatalogs?: Prisma.EventCatalogUpdateManyWithoutCreatedByNestedInput
   quotations?: Prisma.QuotationUpdateManyWithoutCreatedByNestedInput
   quotationsValidated?: Prisma.QuotationUpdateManyWithoutValidadaPorNestedInput
   quotationsApproved?: Prisma.QuotationUpdateManyWithoutAprobadaPorNestedInput
@@ -980,6 +1114,7 @@ export type UserUncheckedUpdateWithoutUploadedAttachmentsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   roles?: Prisma.RoleUncheckedUpdateManyWithoutUsersNestedInput
   createdEvents?: Prisma.EventUncheckedUpdateManyWithoutCreatedByNestedInput
+  eventCatalogs?: Prisma.EventCatalogUncheckedUpdateManyWithoutCreatedByNestedInput
   quotations?: Prisma.QuotationUncheckedUpdateManyWithoutCreatedByNestedInput
   quotationsValidated?: Prisma.QuotationUncheckedUpdateManyWithoutValidadaPorNestedInput
   quotationsApproved?: Prisma.QuotationUncheckedUpdateManyWithoutAprobadaPorNestedInput
@@ -1001,6 +1136,7 @@ export type UserCreateWithoutParameterVersionsInput = {
   roles?: Prisma.RoleCreateNestedManyWithoutUsersInput
   ally?: Prisma.AllyCreateNestedOneWithoutUsersInput
   createdEvents?: Prisma.EventCreateNestedManyWithoutCreatedByInput
+  eventCatalogs?: Prisma.EventCatalogCreateNestedManyWithoutCreatedByInput
   uploadedAttachments?: Prisma.AttachmentCreateNestedManyWithoutUploadedByInput
   quotations?: Prisma.QuotationCreateNestedManyWithoutCreatedByInput
   quotationsValidated?: Prisma.QuotationCreateNestedManyWithoutValidadaPorInput
@@ -1022,6 +1158,7 @@ export type UserUncheckedCreateWithoutParameterVersionsInput = {
   updatedAt?: Date | string
   roles?: Prisma.RoleUncheckedCreateNestedManyWithoutUsersInput
   createdEvents?: Prisma.EventUncheckedCreateNestedManyWithoutCreatedByInput
+  eventCatalogs?: Prisma.EventCatalogUncheckedCreateNestedManyWithoutCreatedByInput
   uploadedAttachments?: Prisma.AttachmentUncheckedCreateNestedManyWithoutUploadedByInput
   quotations?: Prisma.QuotationUncheckedCreateNestedManyWithoutCreatedByInput
   quotationsValidated?: Prisma.QuotationUncheckedCreateNestedManyWithoutValidadaPorInput
@@ -1059,6 +1196,7 @@ export type UserUpdateWithoutParameterVersionsInput = {
   roles?: Prisma.RoleUpdateManyWithoutUsersNestedInput
   ally?: Prisma.AllyUpdateOneWithoutUsersNestedInput
   createdEvents?: Prisma.EventUpdateManyWithoutCreatedByNestedInput
+  eventCatalogs?: Prisma.EventCatalogUpdateManyWithoutCreatedByNestedInput
   uploadedAttachments?: Prisma.AttachmentUpdateManyWithoutUploadedByNestedInput
   quotations?: Prisma.QuotationUpdateManyWithoutCreatedByNestedInput
   quotationsValidated?: Prisma.QuotationUpdateManyWithoutValidadaPorNestedInput
@@ -1080,6 +1218,7 @@ export type UserUncheckedUpdateWithoutParameterVersionsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   roles?: Prisma.RoleUncheckedUpdateManyWithoutUsersNestedInput
   createdEvents?: Prisma.EventUncheckedUpdateManyWithoutCreatedByNestedInput
+  eventCatalogs?: Prisma.EventCatalogUncheckedUpdateManyWithoutCreatedByNestedInput
   uploadedAttachments?: Prisma.AttachmentUncheckedUpdateManyWithoutUploadedByNestedInput
   quotations?: Prisma.QuotationUncheckedUpdateManyWithoutCreatedByNestedInput
   quotationsValidated?: Prisma.QuotationUncheckedUpdateManyWithoutValidadaPorNestedInput
@@ -1100,6 +1239,7 @@ export type UserCreateWithoutAllyInput = {
   updatedAt?: Date | string
   roles?: Prisma.RoleCreateNestedManyWithoutUsersInput
   createdEvents?: Prisma.EventCreateNestedManyWithoutCreatedByInput
+  eventCatalogs?: Prisma.EventCatalogCreateNestedManyWithoutCreatedByInput
   uploadedAttachments?: Prisma.AttachmentCreateNestedManyWithoutUploadedByInput
   quotations?: Prisma.QuotationCreateNestedManyWithoutCreatedByInput
   quotationsValidated?: Prisma.QuotationCreateNestedManyWithoutValidadaPorInput
@@ -1121,6 +1261,7 @@ export type UserUncheckedCreateWithoutAllyInput = {
   updatedAt?: Date | string
   roles?: Prisma.RoleUncheckedCreateNestedManyWithoutUsersInput
   createdEvents?: Prisma.EventUncheckedCreateNestedManyWithoutCreatedByInput
+  eventCatalogs?: Prisma.EventCatalogUncheckedCreateNestedManyWithoutCreatedByInput
   uploadedAttachments?: Prisma.AttachmentUncheckedCreateNestedManyWithoutUploadedByInput
   quotations?: Prisma.QuotationUncheckedCreateNestedManyWithoutCreatedByInput
   quotationsValidated?: Prisma.QuotationUncheckedCreateNestedManyWithoutValidadaPorInput
@@ -1169,6 +1310,7 @@ export type UserCreateWithoutQuotationsInput = {
   roles?: Prisma.RoleCreateNestedManyWithoutUsersInput
   ally?: Prisma.AllyCreateNestedOneWithoutUsersInput
   createdEvents?: Prisma.EventCreateNestedManyWithoutCreatedByInput
+  eventCatalogs?: Prisma.EventCatalogCreateNestedManyWithoutCreatedByInput
   uploadedAttachments?: Prisma.AttachmentCreateNestedManyWithoutUploadedByInput
   quotationsValidated?: Prisma.QuotationCreateNestedManyWithoutValidadaPorInput
   quotationsApproved?: Prisma.QuotationCreateNestedManyWithoutAprobadaPorInput
@@ -1190,6 +1332,7 @@ export type UserUncheckedCreateWithoutQuotationsInput = {
   updatedAt?: Date | string
   roles?: Prisma.RoleUncheckedCreateNestedManyWithoutUsersInput
   createdEvents?: Prisma.EventUncheckedCreateNestedManyWithoutCreatedByInput
+  eventCatalogs?: Prisma.EventCatalogUncheckedCreateNestedManyWithoutCreatedByInput
   uploadedAttachments?: Prisma.AttachmentUncheckedCreateNestedManyWithoutUploadedByInput
   quotationsValidated?: Prisma.QuotationUncheckedCreateNestedManyWithoutValidadaPorInput
   quotationsApproved?: Prisma.QuotationUncheckedCreateNestedManyWithoutAprobadaPorInput
@@ -1216,6 +1359,7 @@ export type UserCreateWithoutQuotationsValidatedInput = {
   roles?: Prisma.RoleCreateNestedManyWithoutUsersInput
   ally?: Prisma.AllyCreateNestedOneWithoutUsersInput
   createdEvents?: Prisma.EventCreateNestedManyWithoutCreatedByInput
+  eventCatalogs?: Prisma.EventCatalogCreateNestedManyWithoutCreatedByInput
   uploadedAttachments?: Prisma.AttachmentCreateNestedManyWithoutUploadedByInput
   quotations?: Prisma.QuotationCreateNestedManyWithoutCreatedByInput
   quotationsApproved?: Prisma.QuotationCreateNestedManyWithoutAprobadaPorInput
@@ -1237,6 +1381,7 @@ export type UserUncheckedCreateWithoutQuotationsValidatedInput = {
   updatedAt?: Date | string
   roles?: Prisma.RoleUncheckedCreateNestedManyWithoutUsersInput
   createdEvents?: Prisma.EventUncheckedCreateNestedManyWithoutCreatedByInput
+  eventCatalogs?: Prisma.EventCatalogUncheckedCreateNestedManyWithoutCreatedByInput
   uploadedAttachments?: Prisma.AttachmentUncheckedCreateNestedManyWithoutUploadedByInput
   quotations?: Prisma.QuotationUncheckedCreateNestedManyWithoutCreatedByInput
   quotationsApproved?: Prisma.QuotationUncheckedCreateNestedManyWithoutAprobadaPorInput
@@ -1263,6 +1408,7 @@ export type UserCreateWithoutQuotationsApprovedInput = {
   roles?: Prisma.RoleCreateNestedManyWithoutUsersInput
   ally?: Prisma.AllyCreateNestedOneWithoutUsersInput
   createdEvents?: Prisma.EventCreateNestedManyWithoutCreatedByInput
+  eventCatalogs?: Prisma.EventCatalogCreateNestedManyWithoutCreatedByInput
   uploadedAttachments?: Prisma.AttachmentCreateNestedManyWithoutUploadedByInput
   quotations?: Prisma.QuotationCreateNestedManyWithoutCreatedByInput
   quotationsValidated?: Prisma.QuotationCreateNestedManyWithoutValidadaPorInput
@@ -1284,6 +1430,7 @@ export type UserUncheckedCreateWithoutQuotationsApprovedInput = {
   updatedAt?: Date | string
   roles?: Prisma.RoleUncheckedCreateNestedManyWithoutUsersInput
   createdEvents?: Prisma.EventUncheckedCreateNestedManyWithoutCreatedByInput
+  eventCatalogs?: Prisma.EventCatalogUncheckedCreateNestedManyWithoutCreatedByInput
   uploadedAttachments?: Prisma.AttachmentUncheckedCreateNestedManyWithoutUploadedByInput
   quotations?: Prisma.QuotationUncheckedCreateNestedManyWithoutCreatedByInput
   quotationsValidated?: Prisma.QuotationUncheckedCreateNestedManyWithoutValidadaPorInput
@@ -1321,6 +1468,7 @@ export type UserUpdateWithoutQuotationsInput = {
   roles?: Prisma.RoleUpdateManyWithoutUsersNestedInput
   ally?: Prisma.AllyUpdateOneWithoutUsersNestedInput
   createdEvents?: Prisma.EventUpdateManyWithoutCreatedByNestedInput
+  eventCatalogs?: Prisma.EventCatalogUpdateManyWithoutCreatedByNestedInput
   uploadedAttachments?: Prisma.AttachmentUpdateManyWithoutUploadedByNestedInput
   quotationsValidated?: Prisma.QuotationUpdateManyWithoutValidadaPorNestedInput
   quotationsApproved?: Prisma.QuotationUpdateManyWithoutAprobadaPorNestedInput
@@ -1342,6 +1490,7 @@ export type UserUncheckedUpdateWithoutQuotationsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   roles?: Prisma.RoleUncheckedUpdateManyWithoutUsersNestedInput
   createdEvents?: Prisma.EventUncheckedUpdateManyWithoutCreatedByNestedInput
+  eventCatalogs?: Prisma.EventCatalogUncheckedUpdateManyWithoutCreatedByNestedInput
   uploadedAttachments?: Prisma.AttachmentUncheckedUpdateManyWithoutUploadedByNestedInput
   quotationsValidated?: Prisma.QuotationUncheckedUpdateManyWithoutValidadaPorNestedInput
   quotationsApproved?: Prisma.QuotationUncheckedUpdateManyWithoutAprobadaPorNestedInput
@@ -1374,6 +1523,7 @@ export type UserUpdateWithoutQuotationsValidatedInput = {
   roles?: Prisma.RoleUpdateManyWithoutUsersNestedInput
   ally?: Prisma.AllyUpdateOneWithoutUsersNestedInput
   createdEvents?: Prisma.EventUpdateManyWithoutCreatedByNestedInput
+  eventCatalogs?: Prisma.EventCatalogUpdateManyWithoutCreatedByNestedInput
   uploadedAttachments?: Prisma.AttachmentUpdateManyWithoutUploadedByNestedInput
   quotations?: Prisma.QuotationUpdateManyWithoutCreatedByNestedInput
   quotationsApproved?: Prisma.QuotationUpdateManyWithoutAprobadaPorNestedInput
@@ -1395,6 +1545,7 @@ export type UserUncheckedUpdateWithoutQuotationsValidatedInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   roles?: Prisma.RoleUncheckedUpdateManyWithoutUsersNestedInput
   createdEvents?: Prisma.EventUncheckedUpdateManyWithoutCreatedByNestedInput
+  eventCatalogs?: Prisma.EventCatalogUncheckedUpdateManyWithoutCreatedByNestedInput
   uploadedAttachments?: Prisma.AttachmentUncheckedUpdateManyWithoutUploadedByNestedInput
   quotations?: Prisma.QuotationUncheckedUpdateManyWithoutCreatedByNestedInput
   quotationsApproved?: Prisma.QuotationUncheckedUpdateManyWithoutAprobadaPorNestedInput
@@ -1427,6 +1578,7 @@ export type UserUpdateWithoutQuotationsApprovedInput = {
   roles?: Prisma.RoleUpdateManyWithoutUsersNestedInput
   ally?: Prisma.AllyUpdateOneWithoutUsersNestedInput
   createdEvents?: Prisma.EventUpdateManyWithoutCreatedByNestedInput
+  eventCatalogs?: Prisma.EventCatalogUpdateManyWithoutCreatedByNestedInput
   uploadedAttachments?: Prisma.AttachmentUpdateManyWithoutUploadedByNestedInput
   quotations?: Prisma.QuotationUpdateManyWithoutCreatedByNestedInput
   quotationsValidated?: Prisma.QuotationUpdateManyWithoutValidadaPorNestedInput
@@ -1448,6 +1600,7 @@ export type UserUncheckedUpdateWithoutQuotationsApprovedInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   roles?: Prisma.RoleUncheckedUpdateManyWithoutUsersNestedInput
   createdEvents?: Prisma.EventUncheckedUpdateManyWithoutCreatedByNestedInput
+  eventCatalogs?: Prisma.EventCatalogUncheckedUpdateManyWithoutCreatedByNestedInput
   uploadedAttachments?: Prisma.AttachmentUncheckedUpdateManyWithoutUploadedByNestedInput
   quotations?: Prisma.QuotationUncheckedUpdateManyWithoutCreatedByNestedInput
   quotationsValidated?: Prisma.QuotationUncheckedUpdateManyWithoutValidadaPorNestedInput
@@ -1469,6 +1622,7 @@ export type UserCreateWithoutOfertaEconomicasInput = {
   roles?: Prisma.RoleCreateNestedManyWithoutUsersInput
   ally?: Prisma.AllyCreateNestedOneWithoutUsersInput
   createdEvents?: Prisma.EventCreateNestedManyWithoutCreatedByInput
+  eventCatalogs?: Prisma.EventCatalogCreateNestedManyWithoutCreatedByInput
   uploadedAttachments?: Prisma.AttachmentCreateNestedManyWithoutUploadedByInput
   quotations?: Prisma.QuotationCreateNestedManyWithoutCreatedByInput
   quotationsValidated?: Prisma.QuotationCreateNestedManyWithoutValidadaPorInput
@@ -1490,6 +1644,7 @@ export type UserUncheckedCreateWithoutOfertaEconomicasInput = {
   updatedAt?: Date | string
   roles?: Prisma.RoleUncheckedCreateNestedManyWithoutUsersInput
   createdEvents?: Prisma.EventUncheckedCreateNestedManyWithoutCreatedByInput
+  eventCatalogs?: Prisma.EventCatalogUncheckedCreateNestedManyWithoutCreatedByInput
   uploadedAttachments?: Prisma.AttachmentUncheckedCreateNestedManyWithoutUploadedByInput
   quotations?: Prisma.QuotationUncheckedCreateNestedManyWithoutCreatedByInput
   quotationsValidated?: Prisma.QuotationUncheckedCreateNestedManyWithoutValidadaPorInput
@@ -1527,6 +1682,7 @@ export type UserUpdateWithoutOfertaEconomicasInput = {
   roles?: Prisma.RoleUpdateManyWithoutUsersNestedInput
   ally?: Prisma.AllyUpdateOneWithoutUsersNestedInput
   createdEvents?: Prisma.EventUpdateManyWithoutCreatedByNestedInput
+  eventCatalogs?: Prisma.EventCatalogUpdateManyWithoutCreatedByNestedInput
   uploadedAttachments?: Prisma.AttachmentUpdateManyWithoutUploadedByNestedInput
   quotations?: Prisma.QuotationUpdateManyWithoutCreatedByNestedInput
   quotationsValidated?: Prisma.QuotationUpdateManyWithoutValidadaPorNestedInput
@@ -1548,6 +1704,7 @@ export type UserUncheckedUpdateWithoutOfertaEconomicasInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   roles?: Prisma.RoleUncheckedUpdateManyWithoutUsersNestedInput
   createdEvents?: Prisma.EventUncheckedUpdateManyWithoutCreatedByNestedInput
+  eventCatalogs?: Prisma.EventCatalogUncheckedUpdateManyWithoutCreatedByNestedInput
   uploadedAttachments?: Prisma.AttachmentUncheckedUpdateManyWithoutUploadedByNestedInput
   quotations?: Prisma.QuotationUncheckedUpdateManyWithoutCreatedByNestedInput
   quotationsValidated?: Prisma.QuotationUncheckedUpdateManyWithoutValidadaPorNestedInput
@@ -1569,6 +1726,7 @@ export type UserCreateWithoutPaymentsCreatedInput = {
   roles?: Prisma.RoleCreateNestedManyWithoutUsersInput
   ally?: Prisma.AllyCreateNestedOneWithoutUsersInput
   createdEvents?: Prisma.EventCreateNestedManyWithoutCreatedByInput
+  eventCatalogs?: Prisma.EventCatalogCreateNestedManyWithoutCreatedByInput
   uploadedAttachments?: Prisma.AttachmentCreateNestedManyWithoutUploadedByInput
   quotations?: Prisma.QuotationCreateNestedManyWithoutCreatedByInput
   quotationsValidated?: Prisma.QuotationCreateNestedManyWithoutValidadaPorInput
@@ -1590,6 +1748,7 @@ export type UserUncheckedCreateWithoutPaymentsCreatedInput = {
   updatedAt?: Date | string
   roles?: Prisma.RoleUncheckedCreateNestedManyWithoutUsersInput
   createdEvents?: Prisma.EventUncheckedCreateNestedManyWithoutCreatedByInput
+  eventCatalogs?: Prisma.EventCatalogUncheckedCreateNestedManyWithoutCreatedByInput
   uploadedAttachments?: Prisma.AttachmentUncheckedCreateNestedManyWithoutUploadedByInput
   quotations?: Prisma.QuotationUncheckedCreateNestedManyWithoutCreatedByInput
   quotationsValidated?: Prisma.QuotationUncheckedCreateNestedManyWithoutValidadaPorInput
@@ -1627,6 +1786,7 @@ export type UserUpdateWithoutPaymentsCreatedInput = {
   roles?: Prisma.RoleUpdateManyWithoutUsersNestedInput
   ally?: Prisma.AllyUpdateOneWithoutUsersNestedInput
   createdEvents?: Prisma.EventUpdateManyWithoutCreatedByNestedInput
+  eventCatalogs?: Prisma.EventCatalogUpdateManyWithoutCreatedByNestedInput
   uploadedAttachments?: Prisma.AttachmentUpdateManyWithoutUploadedByNestedInput
   quotations?: Prisma.QuotationUpdateManyWithoutCreatedByNestedInput
   quotationsValidated?: Prisma.QuotationUpdateManyWithoutValidadaPorNestedInput
@@ -1648,6 +1808,7 @@ export type UserUncheckedUpdateWithoutPaymentsCreatedInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   roles?: Prisma.RoleUncheckedUpdateManyWithoutUsersNestedInput
   createdEvents?: Prisma.EventUncheckedUpdateManyWithoutCreatedByNestedInput
+  eventCatalogs?: Prisma.EventCatalogUncheckedUpdateManyWithoutCreatedByNestedInput
   uploadedAttachments?: Prisma.AttachmentUncheckedUpdateManyWithoutUploadedByNestedInput
   quotations?: Prisma.QuotationUncheckedUpdateManyWithoutCreatedByNestedInput
   quotationsValidated?: Prisma.QuotationUncheckedUpdateManyWithoutValidadaPorNestedInput
@@ -1669,6 +1830,7 @@ export type UserCreateWithoutNotificationsInput = {
   roles?: Prisma.RoleCreateNestedManyWithoutUsersInput
   ally?: Prisma.AllyCreateNestedOneWithoutUsersInput
   createdEvents?: Prisma.EventCreateNestedManyWithoutCreatedByInput
+  eventCatalogs?: Prisma.EventCatalogCreateNestedManyWithoutCreatedByInput
   uploadedAttachments?: Prisma.AttachmentCreateNestedManyWithoutUploadedByInput
   quotations?: Prisma.QuotationCreateNestedManyWithoutCreatedByInput
   quotationsValidated?: Prisma.QuotationCreateNestedManyWithoutValidadaPorInput
@@ -1690,6 +1852,7 @@ export type UserUncheckedCreateWithoutNotificationsInput = {
   updatedAt?: Date | string
   roles?: Prisma.RoleUncheckedCreateNestedManyWithoutUsersInput
   createdEvents?: Prisma.EventUncheckedCreateNestedManyWithoutCreatedByInput
+  eventCatalogs?: Prisma.EventCatalogUncheckedCreateNestedManyWithoutCreatedByInput
   uploadedAttachments?: Prisma.AttachmentUncheckedCreateNestedManyWithoutUploadedByInput
   quotations?: Prisma.QuotationUncheckedCreateNestedManyWithoutCreatedByInput
   quotationsValidated?: Prisma.QuotationUncheckedCreateNestedManyWithoutValidadaPorInput
@@ -1727,6 +1890,7 @@ export type UserUpdateWithoutNotificationsInput = {
   roles?: Prisma.RoleUpdateManyWithoutUsersNestedInput
   ally?: Prisma.AllyUpdateOneWithoutUsersNestedInput
   createdEvents?: Prisma.EventUpdateManyWithoutCreatedByNestedInput
+  eventCatalogs?: Prisma.EventCatalogUpdateManyWithoutCreatedByNestedInput
   uploadedAttachments?: Prisma.AttachmentUpdateManyWithoutUploadedByNestedInput
   quotations?: Prisma.QuotationUpdateManyWithoutCreatedByNestedInput
   quotationsValidated?: Prisma.QuotationUpdateManyWithoutValidadaPorNestedInput
@@ -1748,6 +1912,7 @@ export type UserUncheckedUpdateWithoutNotificationsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   roles?: Prisma.RoleUncheckedUpdateManyWithoutUsersNestedInput
   createdEvents?: Prisma.EventUncheckedUpdateManyWithoutCreatedByNestedInput
+  eventCatalogs?: Prisma.EventCatalogUncheckedUpdateManyWithoutCreatedByNestedInput
   uploadedAttachments?: Prisma.AttachmentUncheckedUpdateManyWithoutUploadedByNestedInput
   quotations?: Prisma.QuotationUncheckedUpdateManyWithoutCreatedByNestedInput
   quotationsValidated?: Prisma.QuotationUncheckedUpdateManyWithoutValidadaPorNestedInput
@@ -1768,6 +1933,7 @@ export type UserUpdateWithoutRolesInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ally?: Prisma.AllyUpdateOneWithoutUsersNestedInput
   createdEvents?: Prisma.EventUpdateManyWithoutCreatedByNestedInput
+  eventCatalogs?: Prisma.EventCatalogUpdateManyWithoutCreatedByNestedInput
   uploadedAttachments?: Prisma.AttachmentUpdateManyWithoutUploadedByNestedInput
   quotations?: Prisma.QuotationUpdateManyWithoutCreatedByNestedInput
   quotationsValidated?: Prisma.QuotationUpdateManyWithoutValidadaPorNestedInput
@@ -1789,6 +1955,7 @@ export type UserUncheckedUpdateWithoutRolesInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdEvents?: Prisma.EventUncheckedUpdateManyWithoutCreatedByNestedInput
+  eventCatalogs?: Prisma.EventCatalogUncheckedUpdateManyWithoutCreatedByNestedInput
   uploadedAttachments?: Prisma.AttachmentUncheckedUpdateManyWithoutUploadedByNestedInput
   quotations?: Prisma.QuotationUncheckedUpdateManyWithoutCreatedByNestedInput
   quotationsValidated?: Prisma.QuotationUncheckedUpdateManyWithoutValidadaPorNestedInput
@@ -1833,6 +2000,7 @@ export type UserUpdateWithoutAllyInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   roles?: Prisma.RoleUpdateManyWithoutUsersNestedInput
   createdEvents?: Prisma.EventUpdateManyWithoutCreatedByNestedInput
+  eventCatalogs?: Prisma.EventCatalogUpdateManyWithoutCreatedByNestedInput
   uploadedAttachments?: Prisma.AttachmentUpdateManyWithoutUploadedByNestedInput
   quotations?: Prisma.QuotationUpdateManyWithoutCreatedByNestedInput
   quotationsValidated?: Prisma.QuotationUpdateManyWithoutValidadaPorNestedInput
@@ -1854,6 +2022,7 @@ export type UserUncheckedUpdateWithoutAllyInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   roles?: Prisma.RoleUncheckedUpdateManyWithoutUsersNestedInput
   createdEvents?: Prisma.EventUncheckedUpdateManyWithoutCreatedByNestedInput
+  eventCatalogs?: Prisma.EventCatalogUncheckedUpdateManyWithoutCreatedByNestedInput
   uploadedAttachments?: Prisma.AttachmentUncheckedUpdateManyWithoutUploadedByNestedInput
   quotations?: Prisma.QuotationUncheckedUpdateManyWithoutCreatedByNestedInput
   quotationsValidated?: Prisma.QuotationUncheckedUpdateManyWithoutValidadaPorNestedInput
@@ -1883,6 +2052,7 @@ export type UserUncheckedUpdateManyWithoutAllyInput = {
 export type UserCountOutputType = {
   roles: number
   createdEvents: number
+  eventCatalogs: number
   uploadedAttachments: number
   quotations: number
   quotationsValidated: number
@@ -1896,6 +2066,7 @@ export type UserCountOutputType = {
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   roles?: boolean | UserCountOutputTypeCountRolesArgs
   createdEvents?: boolean | UserCountOutputTypeCountCreatedEventsArgs
+  eventCatalogs?: boolean | UserCountOutputTypeCountEventCatalogsArgs
   uploadedAttachments?: boolean | UserCountOutputTypeCountUploadedAttachmentsArgs
   quotations?: boolean | UserCountOutputTypeCountQuotationsArgs
   quotationsValidated?: boolean | UserCountOutputTypeCountQuotationsValidatedArgs
@@ -1928,6 +2099,13 @@ export type UserCountOutputTypeCountRolesArgs<ExtArgs extends runtime.Types.Exte
  */
 export type UserCountOutputTypeCountCreatedEventsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.EventWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountEventCatalogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.EventCatalogWhereInput
 }
 
 /**
@@ -2000,6 +2178,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   roles?: boolean | Prisma.User$rolesArgs<ExtArgs>
   ally?: boolean | Prisma.User$allyArgs<ExtArgs>
   createdEvents?: boolean | Prisma.User$createdEventsArgs<ExtArgs>
+  eventCatalogs?: boolean | Prisma.User$eventCatalogsArgs<ExtArgs>
   uploadedAttachments?: boolean | Prisma.User$uploadedAttachmentsArgs<ExtArgs>
   quotations?: boolean | Prisma.User$quotationsArgs<ExtArgs>
   quotationsValidated?: boolean | Prisma.User$quotationsValidatedArgs<ExtArgs>
@@ -2054,6 +2233,7 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   roles?: boolean | Prisma.User$rolesArgs<ExtArgs>
   ally?: boolean | Prisma.User$allyArgs<ExtArgs>
   createdEvents?: boolean | Prisma.User$createdEventsArgs<ExtArgs>
+  eventCatalogs?: boolean | Prisma.User$eventCatalogsArgs<ExtArgs>
   uploadedAttachments?: boolean | Prisma.User$uploadedAttachmentsArgs<ExtArgs>
   quotations?: boolean | Prisma.User$quotationsArgs<ExtArgs>
   quotationsValidated?: boolean | Prisma.User$quotationsValidatedArgs<ExtArgs>
@@ -2077,6 +2257,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     roles: Prisma.$RolePayload<ExtArgs>[]
     ally: Prisma.$AllyPayload<ExtArgs> | null
     createdEvents: Prisma.$EventPayload<ExtArgs>[]
+    eventCatalogs: Prisma.$EventCatalogPayload<ExtArgs>[]
     uploadedAttachments: Prisma.$AttachmentPayload<ExtArgs>[]
     quotations: Prisma.$QuotationPayload<ExtArgs>[]
     quotationsValidated: Prisma.$QuotationPayload<ExtArgs>[]
@@ -2493,6 +2674,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   roles<T extends Prisma.User$rolesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$rolesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RolePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   ally<T extends Prisma.User$allyArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$allyArgs<ExtArgs>>): Prisma.Prisma__AllyClient<runtime.Types.Result.GetResult<Prisma.$AllyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   createdEvents<T extends Prisma.User$createdEventsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$createdEventsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  eventCatalogs<T extends Prisma.User$eventCatalogsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$eventCatalogsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EventCatalogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   uploadedAttachments<T extends Prisma.User$uploadedAttachmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$uploadedAttachmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AttachmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   quotations<T extends Prisma.User$quotationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$quotationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$QuotationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   quotationsValidated<T extends Prisma.User$quotationsValidatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$quotationsValidatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$QuotationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -3004,6 +3186,30 @@ export type User$createdEventsArgs<ExtArgs extends runtime.Types.Extensions.Inte
   take?: number
   skip?: number
   distinct?: Prisma.EventScalarFieldEnum | Prisma.EventScalarFieldEnum[]
+}
+
+/**
+ * User.eventCatalogs
+ */
+export type User$eventCatalogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the EventCatalog
+   */
+  select?: Prisma.EventCatalogSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the EventCatalog
+   */
+  omit?: Prisma.EventCatalogOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EventCatalogInclude<ExtArgs> | null
+  where?: Prisma.EventCatalogWhereInput
+  orderBy?: Prisma.EventCatalogOrderByWithRelationInput | Prisma.EventCatalogOrderByWithRelationInput[]
+  cursor?: Prisma.EventCatalogWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.EventCatalogScalarFieldEnum | Prisma.EventCatalogScalarFieldEnum[]
 }
 
 /**

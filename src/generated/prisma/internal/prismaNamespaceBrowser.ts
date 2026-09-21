@@ -54,6 +54,7 @@ export const ModelName = {
   User: 'User',
   Role: 'Role',
   Event: 'Event',
+  EventCatalog: 'EventCatalog',
   Item: 'Item',
   Attachment: 'Attachment',
   Parameter: 'Parameter',
@@ -150,6 +151,18 @@ export const EventScalarFieldEnum = {
 } as const
 
 export type EventScalarFieldEnum = (typeof EventScalarFieldEnum)[keyof typeof EventScalarFieldEnum]
+
+
+export const EventCatalogScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  createdById: 'createdById',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EventCatalogScalarFieldEnum = (typeof EventCatalogScalarFieldEnum)[keyof typeof EventCatalogScalarFieldEnum]
 
 
 export const ItemScalarFieldEnum = {

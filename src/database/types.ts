@@ -18,3 +18,7 @@ export type EventWithRelations = Prisma.EventGetPayload<{ include: typeof eventR
 export type EventWithItemsAndCreatedBy = Prisma.EventGetPayload<{
   include: { items: true; createdBy: true };
 }>;
+
+export type EventCatalogWithCreatedBy = Prisma.EventCatalogGetPayload<{
+  include: { createdBy: { select: { id: true; fullName: true } } };
+}>;

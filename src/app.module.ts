@@ -26,6 +26,7 @@ import { SupabaseModule } from './modules/supabase/supabase.module';
 import { NotificationsModule } from './modules/notifications/notifications.module';
 import { PaymentsModule } from './modules/payments/payments.module';
 import { MailModule } from './modules/mail/mail.module';
+import { EventCatalogsModule } from './modules/event-catalogs/event-catalogs.module';
 
 @Module({
   imports: [
@@ -55,6 +56,7 @@ import { MailModule } from './modules/mail/mail.module';
     NotificationsModule,
     PaymentsModule,
     MailModule,
+    EventCatalogsModule,
   ],
   providers: [
     {
